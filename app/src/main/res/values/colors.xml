@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3b82f6</color>
+    <color name="colorPrimaryDark">#2563eb</color>
+    <color name="colorAccent">#f59e0b</color>
+
+    <color name="whites">#FFFFFF</color>
+    <!-- Primary Colors -->
+    <color name="primary_500">#3F51B5</color>  <!-- Indigo 500 -->
+    <color name="primary_700">#303F9F</color>  <!-- Indigo 700 -->
+
+    <!-- Secondary/Accent Colors -->
+    <color name="secondary_200">#80DEEA</color> <!-- Cyan 200 -->
+    <color name="secondary_400">#26C6DA</color> <!-- Cyan 400 -->
+
+    <!-- Background/Surface Colors -->
+    <color name="background">#F5F5F5</color>
+    <color name="surface">#FFFFFF</color>
+
+    <!-- Text Colors -->
+    <color name="on_primary">#FFFFFF</color>
+    <color name="on_secondary">#000000</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+
+    <!-- State Colors -->
+    <color name="error">#E53935</color>
+    <color name="success">#4CAF50</color>
+
+    <!-- Button States -->
+    <color name="button_enabled">@color/primary_500</color>
+    <color name="button_disabled">#BDBDBD</color>
+    <color name="purple_50">#F3E5F5</color>
+    <color name="purple_500">#673AB7</color>
+</resources>

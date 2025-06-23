@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="?android:colorBackground"
+    tools:context=".LoginActivity">
+
+    <ScrollView
+        android:id="@+id/sv_login_form"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_register_section"
+        android:layout_alignParentTop="true"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="24dp"
+            android:paddingBottom="24dp">
+
+            <ImageView
+                android:id="@+id/iv_logo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp"
+                android:src="@drawable/ic_note"
+                app:tint="?colorPrimary"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:textColor="?colorPrimary"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome to Smart Note!"
+                android:textSize="16sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="?android:textColorSecondary"
+                android:layout_marginBottom="32dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_username"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:hint="@string/username">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_password"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                app:passwordToggleEnabled="true"
+                android:hint="@string/password">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/login"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:textSize="16sp"
+                app:cornerRadius="8dp"
+                android:layout_marginBottom="16dp"/>
+
+            <ProgressBar
+                android:id="@+id/progress_bar_login"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:visibility="gone"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/ll_register_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="24dp"> <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/don_t_have_an_account_register"
+        android:textSize="14sp"
+        android:textColor="?android:textColorSecondary"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_register"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register"
+            android:textAllCaps="false"
+            android:textColor="?colorPrimary"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>

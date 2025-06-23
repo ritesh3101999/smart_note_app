@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    tools:context=".NoteDetailActivity">
+
+    <!-- AppBarLayout for the Toolbar at the top -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/Theme.SmartNote.AppBarOverlay">
+
+        <!-- Toolbar for the note details screen -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Note Details"
+            app:titleTextColor="@color/on_primary"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:popupTheme="@style/Theme.SmartNote.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- NestedScrollView for the main content to allow scrolling if the note is long -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <!-- Main vertical layout for note title, content, and metadata -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Note Title - Styled as a large headline for prominence -->
+            <TextView
+                android:id="@+id/tv_note_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface"
+                android:layout_marginBottom="16dp"
+                tools:text="My Awesome Note Title"/>
+
+            <!-- Optional: Separator for content section for visual distinction -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorOnSurface"
+                android:alpha="0.1"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Note Content - Styled as body text with good line spacing -->
+            <TextView
+                android:id="@+id/tv_note_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:textColor="?attr/colorOnSurface"
+                android:lineSpacingExtra="6dp"
+                android:layout_marginBottom="24dp"
+                tools:text="This is the detailed content of the note. It can be quite long and will scroll automatically if needed. The text is designed to be easily readable with appropriate line spacing and text color that contrasts well with the background. This section will contain the full details of the user's note."/>
+
+            <!-- Metadata Section using MaterialCardView for a clean, elevated look -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardElevation="4dp"
+                app:cardCornerRadius="12dp"
+                app:strokeColor="@color/text_secondary"
+                app:strokeWidth="0.5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <!-- Section Title for Note Information -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Note Information"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                        android:textColor="?attr/colorOnSurface"
+                        android:layout_marginBottom="16dp"
+                        android:textStyle="bold"/>
+
+                    <!-- Bookmark Status with icon -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_star_outline"
+                            app:tint="?attr/colorAccent"
+                            android:contentDescription="Bookmark Icon"
+                            android:layout_marginEnd="12dp"/>
+                        <TextView
+                            android:id="@+id/tv_bookmark_status"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                            android:textColor="?android:textColorSecondary"
+                            tools:text="Bookmarked: Yes"/>
+                    </LinearLayout>
+
+                    <!-- Created At with icon -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="12dp">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_calendar"
+                            app:tint="?attr/colorControlNormal"
+                            android:contentDescription="Created At Icon"
+                            android:layout_marginEnd="12dp"/>
+                        <TextView
+                            android:id="@+id/tv_created_at"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                            android:textColor="?android:textColorSecondary"
+                            tools:text="Created: 2023-01-15 10:30"/>
+                    </LinearLayout>
+
+                    <!-- Updated At with icon -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@drawable/ic_calendar"
+                            app:tint="?attr/colorControlNormal"
+                            android:contentDescription="Updated At Icon"
+                            android:layout_marginEnd="12dp"/>
+                        <TextView
+                            android:id="@+id/tv_updated_at"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                            android:textColor="?android:textColorSecondary"
+                            tools:text="Updated: 2023-01-15 11:45"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Button for Editing - Placed at the bottom right -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_edit_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Edit Note"
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        app:tint="@android:color/white"
+        app:backgroundTint="?attr/colorAccent"
+        app:elevation="6dp"
+        app:hoveredFocusedTranslationZ="12dp"
+        app:pressedTranslationZ="12dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

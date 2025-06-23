@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Smart Note</string>
+    <string name="new_note">New Note</string>
+    <string name="save_note">Save Note</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
+    <string name="note_title">Note Title</string>
+    <string name="note_content_preview">Note content preview...</string>
+    <string name="bookmark">Bookmark</string>
+    <string name="bookmarked">Bookmarked</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account_register">Don\'t have an account? Register</string>
+    <string name="view">view</string>
+    <string name="register">Register</string>
+    <string name="delete_folder_desc">Delete folder</string>
+</resources>

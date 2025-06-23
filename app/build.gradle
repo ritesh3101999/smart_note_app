@@ -1,0 +1,58 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'com.example.smartnote'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.example.smartnote"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    // AndroidX and UI libraries:
+    implementation libs.appcompat.v170
+    implementation libs.material.v1120
+    implementation libs.constraintlayout.v221
+    implementation libs.recyclerview.v130
+
+    // Retrofit for REST API calls:
+    implementation libs.retrofit
+    implementation libs.gson
+    implementation libs.converter.gson
+    implementation libs.logging.interceptor
+
+    // Optional: Lifecycle, ViewModel, and LiveData:
+    implementation libs.lifecycle.extensions
+    implementation libs.lifecycle.livedata.ktx.v261
+    implementation libs.lifecycle.viewmodel.ktx.v261
+
+    // For async operations (if needed)
+    implementation libs.annotations
+    implementation libs.activity
+
+    // Testing
+    testImplementation libs.junit
+
+    implementation libs.squareup.okhttp.urlconnection
+    implementation libs.preference
+}

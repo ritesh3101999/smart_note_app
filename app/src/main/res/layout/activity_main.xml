@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:colorBackground"
+    tools:context=".MainActivity">
+
+    <!-- AppBarLayout for Toolbar and potentially other collapsing elements -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/Theme.SmartNote.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/app_name"
+            app:titleTextColor="@color/on_primary"
+            app:popupTheme="@style/Theme.SmartNote.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- Main content area -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- Search View -->
+            <SearchView
+                android:id="@+id/search_view_notes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:iconifiedByDefault="false"
+                android:queryHint="Search notes..."
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/search_view_background"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- NEW: Button for Bookmarked Notes -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_view_bookmarked_notes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="View Bookmarked Notes"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:paddingVertical="12dp"
+                android:textSize="16sp"
+                app:icon="@drawable/ic_star_filled"
+                app:iconTint="@color/whites"
+                app:iconGravity="textStart"
+                app:cornerRadius="8dp"
+                app:backgroundTint="@color/colorAccent"
+                android:textColor="@color/whites"
+                app:layout_constraintTop_toBottomOf="@id/search_view_notes"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Folders Section -->
+            <TextView
+                android:id="@+id/tv_folders_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Folders"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintTop_toBottomOf="@id/btn_view_bookmarked_notes"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_folders"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp"
+                android:maxHeight="200dp"
+                android:clipToPadding="false"
+                android:paddingHorizontal="4dp"
+                android:scrollbars="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/tv_folders_heading"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:itemCount="3"
+                tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:orientation="horizontal"
+                tools:listitem="@layout/item_folder" />
+
+            <!-- Notes Section -->
+            <TextView
+                android:id="@+id/tv_notes_heading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All Notes"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="?android:textColorPrimary"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintTop_toBottomOf="@id/rv_folders"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_notes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                android:paddingVertical="4dp"
+                android:paddingHorizontal="4dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_notes_heading"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:itemCount="6"
+                tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:spanCount="2"
+                tools:listitem="@layout/item_note" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Floating Action Buttons -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="80dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Add new note"
+        app:srcCompat="@android:drawable/ic_input_add"
+        app:tint="@android:color/white"
+        app:backgroundTint="?attr/colorAccent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_folder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:contentDescription="Add new folder"
+        app:srcCompat="@drawable/ic_folder_add"
+        app:tint="@android:color/white"
+        app:backgroundTint="?attr/colorPrimary" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
