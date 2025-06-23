@@ -13,6 +13,7 @@ Smart Note App is an integrated platform that combines a secure, Spring Boot–b
 - [API Endpoints](#api-endpoints)
 - [Configuration](#configuration)
 - [Contributing](#contributing)
+- [License](#license)
 - [Contact](#contact)
 
 ## Features
@@ -145,6 +146,9 @@ Contributions are welcome! If you’d like to add features, fix bugs, or improve
 4. Push your branch and open a pull request.
 
 Please adhere to our coding standards and include detailed descriptions for any new functionality.
+
+## License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contact
 
